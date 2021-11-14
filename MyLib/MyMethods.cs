@@ -41,18 +41,15 @@ namespace MyLib
         /// Ln(x).
         /// </summary>
         /// <param name="x">Real number.</param>
-        /// <param name="e">Accuracy.</param>
+        /// <param name="n">Accuracy.</param>
         /// <returns>Returns the natural logarithm of a given number.</returns>
-        static public double Ln(double x, double e)
+        static public double Ln(double x, int n)
         {
-            double ln = 0, additing;
-            int n = 0;
-            do
+            double ln = 0;
+            for (int i = 0; i < n; i++)
             {
-                additing = (x - 1) / ((2 * n - 1) * Math.Pow(x + 1, 2 * n - 1));
-                ln += additing;
-                n++;
-            } while (Math.Abs(additing) > e);
+                ln += (x - 1) / ((2 * n - 1) * Math.Pow(x + 1, 2 * n - 1));
+            }
             return ln;
         }
     }

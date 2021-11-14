@@ -13,19 +13,19 @@ namespace ConsolePart3
             Console.Write("Введите число х: ");
             double x = double.Parse(Console.ReadLine());
             Console.Write("Введите точность e: ");
-            double e = double.Parse(Console.ReadLine());
+            int e = int.Parse(Console.ReadLine());
 
             //Calling the method of calculation Ln(x,e) from library.
-            double my_ln = MyMethods.Ln(x, e);
+            double myLn = MyMethods.Ln(x, e);
 
             ///Calling the method from <see cref="Math"/>.
             double ln = Math.Log(x);
 
-            double calculation_error = 100 * Math.Abs(ln - ln) / ln;
+            double calculationError = 100 * Math.Abs(myLn - ln) / ln;
 
-            Console.WriteLine("\nСумма ряда = " + ln);
+            Console.WriteLine("\nСумма ряда = " + myLn);
             Console.WriteLine("Точное значение = " + ln);
-            Console.WriteLine($"Ошибка вычислений = {Math.Round(calculation_error, 2)}%");
+            Console.WriteLine($"Ошибка вычислений = {Math.Round(calculationError, 2)}%");
         }
     }
 }
